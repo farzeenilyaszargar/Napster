@@ -58,9 +58,9 @@ export default function Features() {
     };
 
     return (
-        <section className="flex w-5/7 justify-center px-4 py-20 font-ubuntu ">
+        <section className="flex w-5/7 justify-center px-4 py-20 font-ubuntu mt-10">
             <div className="w-full">
-                <h2 className="mb-8 text-left text-2xl font-bold text-[#808080]">
+                <h2 className="mb-15 text-left text-2xl font-bold text-[#808080]">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>

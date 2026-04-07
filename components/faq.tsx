@@ -34,8 +34,8 @@ export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="mt-12 flex w-5/7 justify-center sm:mt-20">
-            <div className="w-full px-4 py-6 sm:px-10 sm:py-10 font-ubuntu">
+        <section className="mt-12 flex w-5/7 justify-center ">
+            <div className="w-full px-4 py-6  sm:py-10 font-ubuntu">
                 <h2 className="m-5 py-5 text-2xl font-bold text-[#424242] sm:py-7 sm:text-left sm:text-3xl">
                     Faqs
                 </h2>
