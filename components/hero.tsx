@@ -16,8 +16,8 @@ export default function Hero() {
 
             <div className="flex justify-between mt-5 gap-5 ">
                 <CopyCommandBar text="npm -i napster" className="w-full" />
-                <Link href={"#"} className="w-full flex justify-center items-center gap-2">Find out how it works
-                <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg" />
+                <Link href="#features" className="w-full flex justify-center items-center gap-1 ">Find out how it works
+                <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg invert" />
 
                 </Link>
             </div>
