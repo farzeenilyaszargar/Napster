@@ -4,6 +4,7 @@ html {
   background-color: #000000;
   color: #ffffff;
   min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
