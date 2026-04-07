@@ -1,3 +1,4 @@
+import CopyCommandBar from "@/components/copyCommandBar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,9 +15,7 @@ export default function Hero() {
             <p className="text-[#727272]">An agentic interface that <span className="text-[#2F2F2F]">understands, plans, executes,<br></br> and iterates</span> directly against your codebase <span className="text-[#2F2F2F]">terminally.</span></p>
 
             <div className="flex justify-between mt-5 gap-5 ">
-                <div className="w-full justify-center items-center border p-2 px-7 rounded-full flex bg-white text-black ">npm -i napster
-                    <Image src="/copy.svg" alt="copy" width={15} height={15} className="ml-2" />
-                </div>
+                <CopyCommandBar text="npm -i napster" className="w-full" />
                 <Link href={"#"} className="w-full flex justify-center items-center gap-2">Find out how it works
                 <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg" />
 
