@@ -1,6 +1,6 @@
 import CopyCommandBar from "@/components/copyCommandBar";
+import SmoothScrollLink from "@/components/smoothScrollLink";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -16,10 +16,10 @@ export default function Hero() {
 
             <div className="flex justify-between mt-5 gap-5 ">
                 <CopyCommandBar text="npm -i napster" className="w-full" />
-                <Link href="#features" className="w-full flex justify-center items-center gap-1 ">Find out how it works
+                <SmoothScrollLink targetId="features" className="w-full flex justify-center items-center gap-1 ">Find out how it works
                 <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg invert" />
 
-                </Link>
+                </SmoothScrollLink>
             </div>
         </div>
         <Image src="/hero.png" alt="main" width={800} height={400} className="mt-20 w-5/7 rounded-lg" loading="eager"/>
