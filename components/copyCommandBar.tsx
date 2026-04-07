@@ -64,10 +64,7 @@ export default function CopyCommandBar({
             className={`flex items-center justify-center gap-2 rounded-full border bg-white p-2 px-7 text-black transition hover:opacity-90 ${className}`}
             aria-label={`Copy command: ${text}`}
         >
-            <span>
-                {text}
-                {copied ? " Copied" : ""}
-            </span>
+            <span>{copied ? "Copied!" : "Copy"}</span>
             <span className="flex items-center gap-2">
                 <Image
                     src="/copy.svg"
