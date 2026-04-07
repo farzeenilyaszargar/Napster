@@ -41,17 +41,18 @@ export default function CopyCommandBar({
     }, []);
 
     const handleCopy = async () => {
+        setCopied(true);
+
+        if (timeoutRef.current !== null) {
+            window.clearTimeout(timeoutRef.current);
+        }
+
         try {
             await copyText(text);
-            setCopied(true);
-
-            if (timeoutRef.current !== null) {
-                window.clearTimeout(timeoutRef.current);
-            }
 
             timeoutRef.current = window.setTimeout(() => {
                 setCopied(false);
-            }, 1800);
+            }, 1200);
         } catch {
             setCopied(false);
         }
@@ -64,7 +65,7 @@ export default function CopyCommandBar({
             className={`flex items-center justify-center gap-2 rounded-full border bg-white p-2 px-7 text-black transition hover:opacity-90 ${className}`}
             aria-label={`Copy command: ${text}`}
         >
-            <span>{copied ? "Copied!" : "Copy"}</span>
+            <span>{copied ? "Copied!" : text}</span>
             <span className="flex items-center gap-2">
                 <Image
                     src="/copy.svg"
