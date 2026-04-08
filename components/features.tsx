@@ -42,23 +42,27 @@ export default function Features() {
         return () => window.clearInterval(intervalId);
     }, []);
 
-    const handleTransitionEnd = () => {
-        if (activeIndex !== features.length) {
+    useEffect(() => {
+        if (activeIndex < features.length) {
             return;
         }
 
-        setIsTransitionEnabled(false);
-        setActiveIndex(0);
+        const resetTimeoutId = window.setTimeout(() => {
+            setIsTransitionEnabled(false);
+            setActiveIndex(0);
 
-        window.requestAnimationFrame(() => {
             window.requestAnimationFrame(() => {
-                setIsTransitionEnabled(true);
+                window.requestAnimationFrame(() => {
+                    setIsTransitionEnabled(true);
+                });
             });
-        });
-    };
+        }, 700);
+
+        return () => window.clearTimeout(resetTimeoutId);
+    }, [activeIndex]);
 
     return (
-        <section id="features" className="mt-10 flex w-5/7 scroll-mt-24 justify-center px-4 py-20 font-ubuntu">
+        <section id="features" className="mt-10 flex w-5/7 scroll-mt-24 justify-center  py-20 font-ubuntu">
             <div className="w-full">
                 <h2 className="mb-15 text-left text-2xl font-bold text-[#808080]">
                     <span className="text-[#2F2F2F]">Features.</span> From the
@@ -73,7 +77,6 @@ export default function Features() {
                                 ? "transform 700ms ease"
                                 : "none",
                         }}
-                        onTransitionEnd={handleTransitionEnd}
                     >
                         {duplicatedFeatures.map((feature, index) => (
                             <article
