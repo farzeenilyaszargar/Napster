@@ -62,7 +62,7 @@ export default function Navbar() {
             }`}
           >
             <div className="flex items-center justify-center bg-black/80 shadow-[0_18px_80px_rgba(0,0,0,0.55)] backdrop-blur-3xl">
-              <div className="sm:w-5/7 w-full px-6 py-6">
+              <div className="sm:w-5/7 w-full py-6">
                 <div className="flex flex-col gap-3">
                   {menuItems.map((item) => (
                     <Link
