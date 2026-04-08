@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const menuItems = [
-  { href: "/", label: "Overview" },
   { href: "/install", label: "Install" },
   { href: "/issues", label: "Issues" },
 ];
@@ -24,7 +23,7 @@ export default function Navbar() {
     <>
       <header className="sticky top-0 z-50 flex w-full items-center justify-center bg-black/60 backdrop-blur-xl">
         <div className="relative flex w-full items-center justify-center">
-          <nav className="relative z-50 flex h-12 w-5/7 items-center justify-between">
+          <nav className="relative z-50 flex h-12 sm:w-5/7 items-center justify-between w-full px-4 sm:px-0">
             <Link
               href="/"
               className="font-pixelify text-xl font-bold tracking-[0.24em] text-[#555555]"
@@ -63,7 +62,7 @@ export default function Navbar() {
             }`}
           >
             <div className="flex items-center justify-center bg-black/80 shadow-[0_18px_80px_rgba(0,0,0,0.55)] backdrop-blur-3xl">
-              <div className="w-5/7 px-6 py-6">
+              <div className="sm:w-5/7 w-full px-6 py-6">
                 <div className="flex flex-col gap-3">
                   {menuItems.map((item) => (
                     <Link

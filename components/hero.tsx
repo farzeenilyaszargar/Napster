@@ -5,17 +5,17 @@ import Image from "next/image";
 export default function Hero() {
     return (
         <>
-        <div className="flex flex-col justify-center items-left mt-25 ">
+        <div className="flex flex-col justify-center items-left mt-25 px-30 ">
 
             <div className="flex flex-row items-center justify-start gap-3 -mb-5">
-                <p className="text-[#999999]">See whats new in v0.0.16</p>
-                <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg" />
+                <p className="text-[#999999] text-sm sm:text-lg">See whats new in v0.0.16</p>
+                <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg w-2.5 sm:w-3" />
             </div>
-            <h1 className="text-8xl font-bold text-left mt-4 mb-3 font-pixelify text-[#191919]">napster</h1>
+            <h1 className="text-6xl sm:text-8xl font-bold text-left mt-4 mb-3 font-pixelify text-[#191919]">napster</h1>
             <p className="text-[#727272]">An agentic interface that <span className="text-[#2F2F2F]">understands, plans, executes,<br></br> and iterates</span> directly against your codebase <span className="text-[#2F2F2F]">terminally.</span></p>
 
             <div className="flex justify-between mt-10 gap-5 ">
-                <CopyCommandBar text="npm -i napster" className="w-full" />
+                <CopyCommandBar text="npm -i napster" className="w-full hidden sm:flex" />
                 <SmoothScrollLink targetId="features" className="w-full flex justify-center items-center gap-1 ">Find out how it works
                 <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg invert" />
 

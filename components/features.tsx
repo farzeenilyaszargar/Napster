@@ -33,6 +33,7 @@ const duplicatedFeatures = [...features, ...features];
 export default function Features() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+    const [cardsPerView, setCardsPerView] = useState(3);
 
     useEffect(() => {
         const intervalId = window.setInterval(() => {
@@ -40,6 +41,17 @@ export default function Features() {
         }, 3200);
 
         return () => window.clearInterval(intervalId);
+    }, []);
+
+    useEffect(() => {
+        const updateCardsPerView = () => {
+            setCardsPerView(window.innerWidth < 640 ? 1 : 3);
+        };
+
+        updateCardsPerView();
+        window.addEventListener("resize", updateCardsPerView);
+
+        return () => window.removeEventListener("resize", updateCardsPerView);
     }, []);
 
     useEffect(() => {
@@ -61,10 +73,12 @@ export default function Features() {
         return () => window.clearTimeout(resetTimeoutId);
     }, [activeIndex]);
 
+    const visibleDotIndex = activeIndex % features.length;
+
     return (
-        <section id="features" className="mt-10 flex w-5/7 scroll-mt-24 justify-center  py-20 font-ubuntu">
+        <section id="features" className="mt-10 flex w-5/7 scroll-mt-24 justify-center py-20 font-ubuntu">
             <div className="w-full">
-                <h2 className="mb-15 text-left text-2xl font-bold text-[#808080]">
+                <h2 className="mb-15 text-left text-xl sm:text-2xl font-bold text-[#808080]">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>
@@ -72,7 +86,7 @@ export default function Features() {
                     <div
                         className="flex gap-4 "
                         style={{
-                            transform: `translateX(calc(-${activeIndex} * ((100% + 1rem) / 3)))`,
+                            transform: `translateX(calc(-${activeIndex} * ((100% + 1rem) / ${cardsPerView})))`,
                             transition: isTransitionEnabled
                                 ? "transform 700ms ease"
                                 : "none",
@@ -82,7 +96,7 @@ export default function Features() {
                             <article
                                 key={`${feature.title}-${index}`}
                                 className="shrink-0 overflow-hidden flex flex-col justify-between rounded-3xl bg-[#0F0F0F]"
-                                style={{ width: "calc((100% - 2rem) / 3)" }}
+                                style={{ width: `calc((100% - ${(cardsPerView - 1)}rem) / ${cardsPerView})` }}
                             >
                                 <div className="p-6 pb-0">
                                     <h3 className="text-xl font-bold text-[#595959]">
@@ -97,13 +111,26 @@ export default function Features() {
                                         src={feature.image}
                                         alt={feature.title}
                                         fill
-                                        sizes="(max-width: 1024px) 33vw, 30vw"
+                                        sizes="(max-width: 639px) 100vw, (max-width: 1024px) 33vw, 30vw"
                                         className="object-cover object-right-bottom"
                                     />
                                 </div>
                             </article>
                         ))}
                     </div>
+                </div>
+                <div className="mt-6 flex items-center justify-center gap-2">
+                    {features.map((feature, index) => (
+                        <span
+                            key={feature.title}
+                            className={`h-2 rounded-full transition-all duration-300 ${
+                                index === visibleDotIndex
+                                    ? "w-6 bg-[#7A7A7A]"
+                                    : "w-2 bg-[#2A2A2A]"
+                            }`}
+                            aria-hidden="true"
+                        />
+                    ))}
                 </div>
             </div>
         </section>
