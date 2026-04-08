@@ -42,6 +42,7 @@ export default function FAQ() {
                 <div className="m-5">
                     {faqs.map((faq, index) => {
                         const isOpen = openIndex === index;
+                        const answerId = `faq-answer-${index}`;
 
                         return (
                             <div
@@ -52,6 +53,7 @@ export default function FAQ() {
                                     type="button"
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                     aria-expanded={isOpen}
+                                    aria-controls={answerId}
                                     className="flex w-full items-center justify-between gap-4 py-5 text-left"
                                 >
                                     <span className="text-base font-normal text-[#424242] sm:text-lg">
@@ -64,11 +66,22 @@ export default function FAQ() {
                                         {isOpen ? "-" : "+"}
                                     </span>
                                 </button>
-                                {isOpen ? (
-                                    <p className="pb-5 pr-10 text-sm font-normal leading-relaxed text-[#727272] sm:text-base">
-                                        {faq.answer}
-                                    </p>
-                                ) : null}
+                                <div
+                                    id={answerId}
+                                    className={`grid overflow-hidden transition-all duration-300 ease-out ${
+                                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                    }`}
+                                >
+                                    <div className="min-h-0">
+                                        <p
+                                            className={`pr-10 text-sm font-normal leading-relaxed text-[#727272] transition-all duration-300 ease-out sm:text-base ${
+                                                isOpen ? "translate-y-0 pb-5" : "-translate-y-1 pb-0"
+                                            }`}
+                                        >
+                                            {faq.answer}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         );
                     })}

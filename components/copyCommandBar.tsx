@@ -67,12 +67,12 @@ export default function CopyCommandBar({
         >
             <span>{copied ? "Copied!" : text}</span>
             <span className="flex items-center gap-2">
-                <Image
+                <Image  
                     src="/copy.svg"
                     alt=""
                     width={15}
                     height={15}
-                    className="rounded-lg"
+                    className=""
                     aria-hidden="true"
                 />
             </span>
