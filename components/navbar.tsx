@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex w-full items-center justify-center bg-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl">
+      <header className="sticky top-0 z-50 flex w-full items-center justify-center bg-white/60 backdrop-blur-xl">
         <div className="relative flex w-full items-center justify-center">
           <nav className="relative z-50 flex h-12 sm:w-5/7 items-center justify-between w-full px-4 sm:px-0">
             <Link
@@ -70,7 +70,7 @@ export default function Navbar() {
                       <span
                         key={item.href}
                         aria-disabled="true"
-                        className="flex cursor-not-allowed items-center justify-between rounded-2xl py-1 text-xl text-[#b4b4b4]"
+                        className="flex cursor-not-allowed items-center justify-between rounded-2xl  px-3 py-1 text-lg text-[#b4b4b4]"
                       >
                         {item.label}
                       </span>
@@ -81,7 +81,7 @@ export default function Navbar() {
                         onClick={() => setIsOpen(false)}
                         className="group flex items-center justify-between rounded-2xl px-3 py-2 transition hover:bg-black/4"
                       >
-                        <span className="text-xl text-[#4f4f4f] transition group-hover:text-[#111111]">
+                        <span className="text-lg text-[#4f4f4f] transition group-hover:text-[#111111]">
                           {item.label}
                         </span>
                       </Link>
