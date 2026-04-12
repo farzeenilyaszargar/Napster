@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex w-full items-center justify-center bg-white/60 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 flex w-full items-center justify-center bg-white/80 backdrop-blur-xl">
         <div className="relative flex w-full items-center justify-center">
           <nav className="relative z-50 flex h-12 sm:w-5/7 items-center justify-between w-full px-4 sm:px-0">
             <Link
@@ -62,15 +62,15 @@ export default function Navbar() {
                 : "pointer-events-none -translate-y-3 scale-y-95 opacity-0"
             }`}
           >
-            <div className="flex items-center justify-center bg-white/60 shadow-[0_22px_60px_rgba(0,0,0,0.06)] backdrop-blur-xl">
-              <div className="sm:w-5/7 w-full py-6">
+            <div className="flex items-center justify-center bg-white/80 shadow-[0_22px_60px_rgba(0,0,0,0.06)] backdrop-blur-xl">
+              <div className="sm:w-5/7 w-full py-3">
                 <div className="flex flex-col gap-3">
                   {menuItems.map((item) => (
                     item.disabled ? (
                       <span
                         key={item.href}
                         aria-disabled="true"
-                        className="flex cursor-not-allowed items-center justify-between rounded-2xl  px-3 py-1 text-lg text-[#b4b4b4]"
+                        className="flex cursor-not-allowed items-center justify-between rounded-2xl  px-3 py-1 text-md text-[#b4b4b4]"
                       >
                         {item.label}
                       </span>
@@ -79,9 +79,9 @@ export default function Navbar() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className="group flex items-center justify-between rounded-2xl px-3 py-2 transition hover:bg-black/4"
+                        className="group flex items-center justify-between rounded-2xl px-3 py-1 transition hover:bg-black/4"
                       >
-                        <span className="text-lg text-[#4f4f4f] transition group-hover:text-[#111111]">
+                        <span className="text-md text-[#4f4f4f] transition group-hover:text-[#111111]">
                           {item.label}
                         </span>
                       </Link>
