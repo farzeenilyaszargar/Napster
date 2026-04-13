@@ -18,8 +18,7 @@ export default function IssuesPage() {
             </p>
           </div>
 
-          <div className="mt-12 w-full max-w-3xl">
-            <h2 className="py-5 text-xl font-medium sm:text-2xl">We&apos;re here to help.</h2>
+          <div className="mt-25 w-full  flex justify-center items-center">
             <div className="flex flex-col gap-2 lg:flex-row">
               <div className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
                 <div className="gap-5 p-7">
