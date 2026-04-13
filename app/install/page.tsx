@@ -1,76 +1,74 @@
-import BaseHero from "@/components/baseHero";
 import CopyCommandBar from "@/components/copyCommandBar";
 import Footer from "@/components/footer";
-
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function InstallPage() {
   return (
-    <div className="flex min-h-screen flex-col justify-between items-center">
+    <div className="flex min-h-screen flex-col items-center">
       <Navbar />
-      <div className="flex flex-col justify-center items-center sm:px-30 sm:py-0 py-20 ">
+      <main className="w-full flex-1">
+        <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="mb-3 font-pixelify text-6xl font-bold -tracking-[3px] text-[#000000] sm:text-8xl">
+              install
+            </h2>
+            <p className="max-w-xl text-[#919191]">
+              Go to your <span className="text-[#000000]">terminal</span> and run the following{" "}
+              <span className="text-[#000000]">commands</span>
+            </p>
+          </div>
 
-            {/* <div className="flex flex-row items-center justify-start gap-3 -mb-5">
-                <p className="text-[#999999] text-sm sm:text-lg">See whats new in v0.0.16</p>
-                <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg w-2.5 sm:w-3" />
-            </div> */}
-            <h2 className="text-6xl sm:text-8xl font-bold text-center mb-3 font-pixelify text-[#000000] -tracking-[3px]">install</h2>
-            <p className="text-[#919191] text-center">Go to your <span className="text-[#000000]">terminal</span> and run the following <span className="text-[#000000]">commands</span></p>
+          <div className="mt-12 w-full">
+            <h2 className="py-5 text-xl font-medium sm:text-2xl">Just a click away.</h2>
+            <div className="flex flex-col gap-2 lg:flex-row">
+              <div className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
+                <div className="gap-5 p-7">
+                  <h3 className="text-xl">Install</h3>
+                  <p className="text-sm text-[#B8B8B8]">Install the nap CLI with npm package</p>
+                </div>
+                <div className="relative">
+                  <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <CopyCommandBar
+                    text="npm -i napster"
+                    className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
+                  />
+                </div>
+              </div>
 
-            
+              <div className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
+                <div className="gap-5 p-7">
+                  <h3 className="text-xl">Run</h3>
+                  <p className="text-sm text-[#B8B8B8]">
+                    Run nap in a terminal to inspect your codebases, edit files, and run commands.
+                  </p>
+                </div>
+                <div className="relative">
+                  <Image src="/i2.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <CopyCommandBar
+                    text='Run “nap”'
+                    className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
+                  />
+                </div>
+              </div>
+
+              <div className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
+                <div className="gap-5 p-7">
+                  <h3 className="text-xl">Updates</h3>
+                  <p className="text-sm text-[#B8B8B8]">For newer versions updated regularly, run:</p>
+                </div>
+                <div className="relative">
+                  <Image src="/i3.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <CopyCommandBar
+                    text="npm -i nap/cli"
+                    className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      <div className=" sm:w-5/7 sm:p-0 p-5 pb-20">
-        <h2 className="sm:text-2xl text-xl py-5 font-medium">Just a click away.</h2>
-        <div className="flex lg:flex-row flex-col gap-2 justify-between">
-          {/* first box */}
-          <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
-            <div className="p-7 gap-5">
-
-              <h3 className="text-xl">Install</h3>
-              <p className="text-sm text-[#B8B8B8]">Install the nap CLI with npm package</p>
-            </div>
-            <div className="relative">
-
-              <Image src="/i1.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="npm -i napster" className="w-4/5 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-
-          {/* second box */}
-          <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
-            <div className="p-7 gap-5">
-
-              <h3 className="text-xl">Run</h3>
-              <p className="text-sm text-[#B8B8B8]">Run nap in a terminal to inspect your codebases, edit files, and run commands.</p>
-            </div>
-            <div className="relative">
-
-              <Image src="/i2.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="Run “nap”" className="w-4/5 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-
-          {/* third box */}
-          <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
-            <div className="p-7 gap-5">
-
-              <h3 className="text-xl">Updates</h3>
-              <p className="text-sm text-[#B8B8B8]">For newer versions updated regularly, run:</p>
-            </div>
-            <div className="relative">
-
-              <Image src="/i3.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="npm -i nap/cli" className="w-4/5 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-          
-          
-
-
-        </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );
