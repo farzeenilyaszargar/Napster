@@ -15,9 +15,13 @@ const ubuntuMono = Ubuntu_Mono({
 });
 
 const siteUrl = getSiteUrl();
+const ogImageUrl = new URL("/og-image.png", siteUrl).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   title: "Nap | The Only CLI You Will Ever Need",
   description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
   keywords: [
@@ -51,9 +55,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
-        width: 2800,
-        height: 1577,
+        url: ogImageUrl,
+        width: 1011,
+        height: 674,
         alt: "Nap Code Preview",
       },
     ],
@@ -62,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nap | The Only CLI You Will Ever Need",
     description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
-    images: ["/og-image.png"],
+    images: [ogImageUrl],
   },
 };
 
