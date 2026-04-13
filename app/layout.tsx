@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Pixelify_Sans, Ubuntu_Mono } from "next/font/google";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const pixelifySans = Pixelify_Sans({
@@ -13,7 +14,10 @@ const ubuntuMono = Ubuntu_Mono({
   weight: ["400", "700"],
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Nap | The Only CLI You Will Ever Need",
   description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
   keywords: [
@@ -43,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nap | The Only CLI You Will Ever Need",
     description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
-    url: "https://www.nap-code.com",
+    url: siteUrl,
     type: "website",
     images: [
       {
