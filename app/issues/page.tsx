@@ -15,7 +15,7 @@ export default function IssuesPage() {
           if your experiencing any <span className="text-[#000000]">issues</span>, please let us know.
         </p>
       </div>
-      <div className="w-full max-w-5xl px-5 pb-20 sm:px-8 lg:px-0">
+      <div className="w-full sm:w-1/2 px-5 pb-20 sm:px-8 lg:px-0">
         <h2 className="py-5 text-xl font-medium sm:text-2xl">We&apos;re here to help.</h2>
         <div className="flex flex-col justify-between gap-2 lg:flex-row">
           {/* first box */}
