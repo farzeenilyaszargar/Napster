@@ -95,7 +95,7 @@ export default function Features() {
                         {duplicatedFeatures.map((feature, index) => (
                             <article
                                 key={`${feature.title}-${index}`}
-                                className="shrink-0 overflow-hidden flex flex-col justify-between rounded-3xl bg-[#0F0F0F]"
+                                className="shrink-0 overflow-hidden flex flex-col justify-between rounded-2xl bg-[#0F0F0F]"
                                 style={{ width: `calc((100% - ${(cardsPerView - 1)}rem) / ${cardsPerView})` }}
                             >
                                 <div className="p-6 pb-0">
