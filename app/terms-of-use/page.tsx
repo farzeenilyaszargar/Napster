@@ -4,50 +4,59 @@ import Link from "next/link";
 
 export default function TermsOfUsePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#FCFCFC]">
+    <div className="flex min-h-screen flex-col items-center bg-[#FCFCFC]">
       <Navbar />
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 py-16 md:px-10">
-        <p className="text-sm uppercase tracking-[0.28em] text-[#8B8B8B]">
-          Terms of Use
-        </p>
-        <h1 className="mt-3 font-pixelify text-5xl text-black sm:text-6xl">Terms of Use</h1>
-        <p className="mt-4 max-w-3xl text-[#707070] leading-7">
-          By using Napster, you agree to use the product responsibly, keep your
-          account secure, and follow any applicable laws or platform rules.
-        </p>
+      <main className="w-full flex-1">
+        <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28">
+          <div className="flex flex-col items-center text-center">
+            <h1 className="mb-3 font-pixelify text-6xl font-bold -tracking-[3px] text-[#000000] sm:text-8xl">
+              terms of use
+            </h1>
+            <p className="max-w-2xl text-[#919191]">
+              The ground rules for using Nap responsibly, keeping your account{" "}
+              <span className="text-[#000000]">secure</span>, and respecting the platform.
+            </p>
+          </div>
 
-        <div className="mt-10 rounded-[28px] border border-black/8 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] sm:p-8">
-          <div className="space-y-6 text-[#5F5F5F] leading-7">
-            <section>
-              <h2 className="text-lg font-semibold text-black">Acceptable use</h2>
-              <p className="mt-2">
-                Do not use Napster to violate laws, abuse systems, or interfere
-                with service integrity for other users.
-              </p>
-            </section>
-            <section>
-              <h2 className="text-lg font-semibold text-black">Accounts</h2>
-              <p className="mt-2">
-                You are responsible for activity under your account and for
-                maintaining the confidentiality of your credentials.
-              </p>
-            </section>
-            <section>
-              <h2 className="text-lg font-semibold text-black">Availability</h2>
-              <p className="mt-2">
-                We may update, improve, or temporarily suspend parts of the
-                service as the product evolves.
-              </p>
-            </section>
+          <div className="mt-12 flex w-full justify-center">
+            <div className="w-full max-w-4xl overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
+              <div className="space-y-8 p-7 sm:p-9">
+                <section>
+                  <h2 className="text-xl font-semibold text-white">Acceptable use</h2>
+                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
+                    Do not use Napster to violate laws, abuse systems, or interfere with service
+                    integrity for other users.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold text-white">Accounts</h2>
+                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
+                    You are responsible for activity under your account and for maintaining the
+                    confidentiality of your credentials.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold text-white">Availability</h2>
+                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
+                    We may update, improve, or temporarily suspend parts of the service as the
+                    product evolves.
+                  </p>
+                </section>
+
+                <div className="border-t border-white/10 pt-6">
+                  <Link
+                    href="/"
+                    className="inline-flex items-center rounded-full border border-white/12 px-5 py-3 text-sm text-white transition hover:border-white/24 hover:bg-white/[0.06]"
+                  >
+                    Back to overview
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <Link
-          href="/"
-          className="mt-10 inline-flex w-fit items-center rounded-full border border-black/10 px-5 py-3 text-sm text-[#2E2E2E] transition hover:border-black/20 hover:bg-black/[0.03]"
-        >
-          Back to overview
-        </Link>
       </main>
       <Footer />
     </div>
