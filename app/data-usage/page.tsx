@@ -1,6 +1,5 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Link from "next/link";
 
 export default function DataUsagePage() {
   return (
@@ -9,7 +8,7 @@ export default function DataUsagePage() {
       <main className="w-full flex-1">
         <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28">
           <div className="flex flex-col items-center text-center">
-            <h1 className="mb-3 font-pixelify text-6xl font-bold -tracking-[3px] text-[#000000] sm:text-8xl">
+            <h1 className="mb-3 font-pixelify text-5xl font-bold -tracking-[3px] text-[#000000] sm:text-7xl">
               data usage
             </h1>
             <p className="max-w-2xl text-[#919191]">
@@ -44,15 +43,6 @@ export default function DataUsagePage() {
                     support, and reasonable product improvement workflows.
                   </p>
                 </section>
-
-                <div className="border-t border-white/10 pt-6">
-                  <Link
-                    href="/"
-                    className="inline-flex items-center rounded-full border border-white/12 px-5 py-3 text-sm text-white transition hover:border-white/24 hover:bg-white/[0.06]"
-                  >
-                    Back to overview
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
