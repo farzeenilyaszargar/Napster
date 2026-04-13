@@ -17,34 +17,30 @@ export default function DataUsagePage() {
             </p>
           </div>
 
-          <div className="mt-12 flex w-full justify-center">
-            <div className="w-full max-w-4xl overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
-              <div className="space-y-8 p-7 sm:p-9">
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Product analytics</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    Aggregated usage patterns help us understand feature adoption, improve
-                    onboarding, and prioritize fixes.
-                  </p>
-                </section>
+          <div className="mt-12 w-full max-w-4xl space-y-8 text-[#5B5B5B]">
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Product analytics</h2>
+              <p className="mt-3 text-sm leading-7">
+                Aggregated usage patterns help us understand feature adoption, improve onboarding,
+                and prioritize fixes.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Security monitoring</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    Diagnostic events and system activity are reviewed to detect abuse, protect
-                    infrastructure, and investigate incidents.
-                  </p>
-                </section>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Security monitoring</h2>
+              <p className="mt-3 text-sm leading-7">
+                Diagnostic events and system activity are reviewed to detect abuse, protect
+                infrastructure, and investigate incidents.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Retention</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    Data is retained only as long as needed for service operation, compliance,
-                    support, and reasonable product improvement workflows.
-                  </p>
-                </section>
-              </div>
-            </div>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Retention</h2>
+              <p className="mt-3 text-sm leading-7">
+                Data is retained only as long as needed for service operation, compliance, support,
+                and reasonable product improvement workflows.
+              </p>
+            </section>
           </div>
         </div>
       </main>

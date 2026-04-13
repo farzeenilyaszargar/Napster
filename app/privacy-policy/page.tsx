@@ -17,34 +17,30 @@ export default function PrivacyPolicyPage() {
             </p>
           </div>
 
-          <div className="mt-12 flex w-full justify-center">
-            <div className="w-full max-w-4xl overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
-              <div className="space-y-8 p-7 sm:p-9">
-                <section>
-                  <h2 className="text-xl font-semibold text-white">What we collect</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    Basic account details, product usage signals, and technical logs that help us
-                    keep Napster stable and secure.
-                  </p>
-                </section>
+          <div className="mt-12 w-full max-w-4xl space-y-8 text-[#5B5B5B]">
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">What we collect</h2>
+              <p className="mt-3 text-sm leading-7">
+                Basic account details, product usage signals, and technical logs that help us keep
+                Napster stable and secure.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">How we use it</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    We use collected information to run the service, diagnose issues, protect the
-                    platform, and improve the developer experience.
-                  </p>
-                </section>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">How we use it</h2>
+              <p className="mt-3 text-sm leading-7">
+                We use collected information to run the service, diagnose issues, protect the
+                platform, and improve the developer experience.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Your control</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    You can reach out to request account-related help or clarification on stored
-                    information and retention practices.
-                  </p>
-                </section>
-              </div>
-            </div>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Your control</h2>
+              <p className="mt-3 text-sm leading-7">
+                You can reach out to request account-related help or clarification on stored
+                information and retention practices.
+              </p>
+            </section>
           </div>
         </div>
       </main>

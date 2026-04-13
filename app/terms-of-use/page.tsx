@@ -17,34 +17,30 @@ export default function TermsOfUsePage() {
             </p>
           </div>
 
-          <div className="mt-12 flex w-full justify-center">
-            <div className="w-full max-w-4xl overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white">
-              <div className="space-y-8 p-7 sm:p-9">
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Acceptable use</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    Do not use Napster to violate laws, abuse systems, or interfere with service
-                    integrity for other users.
-                  </p>
-                </section>
+          <div className="mt-12 w-full max-w-4xl space-y-8 text-[#5B5B5B]">
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Acceptable use</h2>
+              <p className="mt-3 text-sm leading-7">
+                Do not use Napster to violate laws, abuse systems, or interfere with service
+                integrity for other users.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Accounts</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    You are responsible for activity under your account and for maintaining the
-                    confidentiality of your credentials.
-                  </p>
-                </section>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Accounts</h2>
+              <p className="mt-3 text-sm leading-7">
+                You are responsible for activity under your account and for maintaining the
+                confidentiality of your credentials.
+              </p>
+            </section>
 
-                <section>
-                  <h2 className="text-xl font-semibold text-white">Availability</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#B8B8B8]">
-                    We may update, improve, or temporarily suspend parts of the service as the
-                    product evolves.
-                  </p>
-                </section>
-              </div>
-            </div>
+            <section>
+              <h2 className="text-xl font-semibold text-[#111111]">Availability</h2>
+              <p className="mt-3 text-sm leading-7">
+                We may update, improve, or temporarily suspend parts of the service as the product
+                evolves.
+              </p>
+            </section>
           </div>
         </div>
       </main>
