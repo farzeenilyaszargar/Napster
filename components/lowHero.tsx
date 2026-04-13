@@ -9,7 +9,7 @@ export default function LowHero() {
             <div className="flex flex-col justify-between mt-10 gap-5 ">
                 <CopyCommandBar text="npm -i napster" />
                 <SmoothScrollLink targetId="features" className=" flex justify-center items-center gap-1">Find out how it works
-                <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg invert" />
+                <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg " />
 
                 </SmoothScrollLink>
             </div>

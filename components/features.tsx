@@ -76,9 +76,9 @@ export default function Features() {
     const visibleDotIndex = activeIndex % features.length;
 
     return (
-        <section id="features" className="mt-10 flex w-5/7 scroll-mt-24 justify-center py-20 font-ubuntu">
+        <section id="features" className="mt-10 flex w-full sm:px-0 px-5 sm:w-5/7 scroll-mt-24 justify-center py-20 font-ubuntu">
             <div className="w-full">
-                <h2 className="mb-15 text-left text-xl sm:text-2xl font-bold text-[#808080]">
+                <h2 className="mb-15 text-left text-lg sm:text-2xl font-bold text-[#808080]">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>

@@ -10,6 +10,7 @@ export default function InstallPage() {
   return (
     <div className="flex min-h-screen flex-col justify-between items-center">
       <Navbar />
+      <div className="flex flex-col justify-center items-center px-30 gap-20 -mt-20">
       <div className="flex flex-col justify-center items-center px-30 ">
 
         {/* <div className="flex flex-row items-center justify-start gap-3 -mb-5">
@@ -21,55 +22,26 @@ export default function InstallPage() {
 
 
       </div>
-      <div className=" w-5/7">
-        <h2 className="text-2xl py-5 font-medium">Just a click away.</h2>
+      <div className=" w-2/3">
         <div className="flex lg:flex-row flex-col gap-2 justify-between">
           {/* first box */}
           <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
             <div className="p-7 gap-5">
 
-              <h3 className="text-xl">Install</h3>
-              <p className="text-sm text-[#B8B8B8]">Install the nap CLI with npm package</p>
+              <h3 className="text-xl">Mail Us</h3>
+              <p className="text-sm text-[#B8B8B8]">Copy the email address below and send us an email.</p>
             </div>
             <div className="relative">
 
               <Image src="/i1.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="npm -i napster" className="w-2/3 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
+              <CopyCommandBar text="issues@nap-code.com" className="w-2/3 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
 
-          {/* second box */}
-          <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
-            <div className="p-7 gap-5">
-
-              <h3 className="text-xl">Run</h3>
-              <p className="text-sm text-[#B8B8B8]">Run nap in a terminal to inspect your codebases, edit files, and run commands.</p>
-            </div>
-            <div className="relative">
-
-              <Image src="/i2.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="Run “nap”" className="w-2/3 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-
-          {/* third box */}
-          <div className="flex flex-col border rounded-2xl bg-[#0F0F0F] text-white overflow-hidden w-full justify-between">
-            <div className="p-7 gap-5">
-
-              <h3 className="text-xl">Updates</h3>
-              <p className="text-sm text-[#B8B8B8]">For newer versions updated regularly, run:</p>
-            </div>
-            <div className="relative">
-
-              <Image src="/i3.png" alt="npm" width={100} height={100} className=" w-full z-0" />
-              <CopyCommandBar text="npm -i nap/cli" className="w-2/3 z-10 border-0 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2" />
-            </div>
-          </div>
-
-
-
+          
 
         </div>
+      </div>
       </div>
       <Footer />
     </div>

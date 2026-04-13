@@ -67,14 +67,13 @@ export default function CopyCommandBar({
         >
             <span>{text}</span>
             <span className="flex items-center gap-2">
-                <Image  
-                    src={copied ? "/tick.png" : "/copy.svg"}
-                    alt=""
-                    width={15}
-                    height={15}
-                    className="invert"
-                    aria-hidden="true"
-                />
+                {
+                    copied ? 
+                    <Image src="/tick.png" alt="Copied" width={16} height={17} className="invert" aria-hidden="true" />
+                    :
+                    <Image src="/copy.svg" alt="Copy" width={15} height={15} className="invert" aria-hidden="true" />
+                }
+                
             </span>
         </button>
     );
