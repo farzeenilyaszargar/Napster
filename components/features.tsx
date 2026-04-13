@@ -123,7 +123,7 @@ export default function Features() {
                     {features.map((feature, index) => (
                         <span
                             key={feature.title}
-                            className={`h-2 rounded-full transition-all duration-300 ${
+                            className={`h-2 rounded-xl transition-all duration-300 ${
                                 index === visibleDotIndex
                                     ? "w-6 bg-[#7A7A7A]"
                                     : "w-2 bg-[#2A2A2A]"
