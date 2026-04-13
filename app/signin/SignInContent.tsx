@@ -267,14 +267,15 @@ export default function SignInContent() {
     return (
         <main className="flex w-full flex-1 items-center justify-center px-5 py-16 sm:px-8">
             <div className="w-full max-w-[460px] text-center">
-                <h1 className="mb-4 font-pixelify text-5xl font-bold -tracking-[3px] text-black sm:text-6xl">
-                    Welcome to nap
-                </h1>
-                <p className="mb-8 text-sm leading-7 text-[#777777]">
-                    Sign in to continue with your workspace.
-                </p>
+                
 
                 <div className="rounded-[32px] border border-black/8 bg-white p-6 text-left shadow-[0_20px_60px_rgba(0,0,0,0.06)] sm:p-8">
+                    <h1 className="mb-4 font-pixelify text-4xl text-center font-bold -tracking-[3px] text-black sm:text-5xl">
+                    Welcome to Nap
+                </h1>
+                <p className="mb-8 text-sm leading-7 text-center text-[#777777]">
+                    Sign in to continue with your workspace.
+                </p>
                     <div className="space-y-3">
                         {providers.map((provider) => (
                             <button
@@ -362,7 +363,7 @@ export default function SignInContent() {
                                     type="button"
                                     onClick={handleVerifyOtp}
                                     disabled={emailStep === 'verifying' || !!configMessage}
-                                    className="inline-flex items-center justify-center rounded-2xl border border-black/10 bg-[#F3F3F3] px-4 py-3 text-sm font-semibold text-[#242424] transition hover:bg-[#ECECEC] disabled:cursor-not-allowed disabled:opacity-60"
+                                    className="inline-flex items-center justify-center rounded-2xl border border-black bg-black px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#1F1F1F] disabled:cursor-not-allowed disabled:opacity-60"
                                 >
                                     {emailStep === 'verifying' ? 'Verifying...' : 'Verify'}
                                 </button>
