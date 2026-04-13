@@ -1,5 +1,16 @@
 import { createBrowserClient } from '@supabase/ssr'
 
+export function getClientConfigError() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!supabaseUrl || !supabaseKey) {
+    return 'Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY environment variables.'
+  }
+
+  return null
+}
+
 export function createClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -12,6 +23,4 @@ export function createClient() {
 
   return createBrowserClient(supabaseUrl, supabaseKey)
 }
-
-
 

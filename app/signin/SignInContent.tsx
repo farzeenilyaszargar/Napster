@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { createClient } from '@/lib/supabase/client'
+import { createClient, getClientConfigError } from '@/lib/supabase/client'
 
 type Provider = 'google'
 
@@ -20,6 +20,8 @@ const providers: Array<{
 
 export default function SignInContent() {
     const searchParams = useSearchParams()
+    const configError = getClientConfigError()
+    const configMessage = configError ? 'Sign in is temporarily unavailable. Please try again later.' : null
     const [activeProvider, setActiveProvider] = useState<Provider | null>(null)
     const [emailStep, setEmailStep] = useState<'idle' | 'sending' | 'sent' | 'verifying'>('idle')
     const [email, setEmail] = useState('')
@@ -84,6 +86,10 @@ export default function SignInContent() {
     }, [redirectUrlObject])
 
     useEffect(() => {
+        if (configError) {
+            return
+        }
+
         const supabase = createClient()
         supabase.auth.getSession().then(({ data }) => {
             if (data.session) {
@@ -92,9 +98,14 @@ export default function SignInContent() {
                 setSuccess('Login successful.')
             }
         })
-    }, [desktopMode, nextPath, queryError])
+    }, [configError, desktopMode, nextPath, queryError])
 
     const handleSignIn = async (provider: Provider) => {
+        if (configError) {
+            setError(configMessage)
+            return
+        }
+
         const supabase = createClient()
         setActiveProvider(provider)
         setError(null)
@@ -137,6 +148,11 @@ export default function SignInContent() {
         setError(null)
         setSuccess(null)
         setEmailStep('idle')
+
+        if (configError) {
+            setError(configMessage)
+            return
+        }
 
         const trimmedEmail = email.trim()
         if (!trimmedEmail) {
@@ -205,6 +221,11 @@ export default function SignInContent() {
     }
 
     const handleVerifyOtp = async () => {
+        if (configError) {
+            setError(configMessage)
+            return
+        }
+
         const supabase = createClient()
         setError(null)
         setSuccess(null)
@@ -264,7 +285,7 @@ export default function SignInContent() {
                                     key={provider.id}
                                     type="button"
                                     onClick={() => handleSignIn(provider.id)}
-                                    disabled={!!activeProvider}
+                                    disabled={!!activeProvider || !!configMessage}
                                     className="group relative flex w-full items-center justify-center gap-3 rounded-2xl border border-[#1F1F1F] bg-[#0D0D0D] px-5 py-3.5 text-md font-semibold text-[#A0A0A0] shadow-sm transition-all hover:border-[#2C2C2C] hover:bg-[#131313] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                                 >
                                     <div className="flex items-center gap-3">
@@ -307,9 +328,9 @@ export default function SignInContent() {
                                     className="w-full rounded-xl border border-[#1F1F1F] bg-[#0B0B0B] px-4 py-3 text-md text-[#D0D0D0] outline-none transition placeholder:text-[#4F4F4F] focus:border-[#3A3A3A] focus:ring-2 focus:ring-[#1B1B1B]"
                                 />
                                 <button
-                                    type="button"
-                                    onClick={handleEmailSignIn}
-                                    disabled={emailStep === 'sending'}
+                                        type="button"
+                                        onClick={handleEmailSignIn}
+                                        disabled={emailStep === 'sending' || !!configMessage}
                                     className="inline-flex items-center justify-center rounded-xl border border-[#202020] bg-[#ffffff] px-4 py-2.5 text-md font-semibold text-[#0f0f0f] transition hover:bg-[#c7c7c7] disabled:cursor-not-allowed disabled:opacity-60"
                                 >
                                     {emailStep === 'sending' ? 'Sending...' : 'Continue'}
@@ -339,7 +360,7 @@ export default function SignInContent() {
                                     <button
                                         type="button"
                                         onClick={handleVerifyOtp}
-                                        disabled={emailStep === 'verifying'}
+                                        disabled={emailStep === 'verifying' || !!configMessage}
                                         className="inline-flex items-center justify-center rounded-xl border border-[#202020] bg-[#131313] px-4 py-2.5 text-sm font-semibold text-[#CFCFCF] transition hover:bg-[#181818] disabled:cursor-not-allowed disabled:opacity-60"
                                     >
                                         {emailStep === 'verifying' ? 'Verifying...' : 'Verify'}
@@ -348,10 +369,10 @@ export default function SignInContent() {
                             )}
                         </div>
 
-                        {(error || (!suppressQueryError && queryError)) && (
+                        {(configMessage || error || (!suppressQueryError && queryError)) && (
                             <div className="mt-6 animate-in fade-in zoom-in-95 duration-300">
                                 <div className="rounded-xl border border-red-500/15 bg-red-500/8 px-4 py-3 text-center">
-                                    <p className="text-sm font-medium text-red-300">{error || queryError}</p>
+                                    <p className="text-sm font-medium text-red-300">{configMessage || error || queryError}</p>
                                 </div>
                             </div>
                         )}
