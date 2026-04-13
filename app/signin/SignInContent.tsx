@@ -95,7 +95,7 @@ export default function SignInContent() {
             if (data.session) {
                 setSuppressQueryError(true)
                 setError(null)
-                setSuccess('Login successful.')
+                setSuccess(null)
             }
         })
     }, [configError, desktopMode, nextPath, queryError])
