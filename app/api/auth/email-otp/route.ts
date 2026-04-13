@@ -12,7 +12,7 @@ type EmailOtpRequest = {
 function createEmailHtml(emailOtp: string, actionLink: string | null) {
   const actionMarkup = actionLink
     ? `<p style="margin:24px 0 0;">
-         <a href="${actionLink}" style="display:inline-block;border-radius:9999px;background:#ffffff;color:#000000;padding:12px 20px;text-decoration:none;font-weight:600;">
+         <a href="${actionLink}" style="display:inline-block;border-radius:9999px;background:#000000;color:#ffffff;padding:12px 20px;text-decoration:none;font-weight:600;">
            Open secure sign in link
          </a>
        </p>`
@@ -22,10 +22,10 @@ function createEmailHtml(emailOtp: string, actionLink: string | null) {
     <div style="background:#000000;padding:32px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#ffffff;">
       <div style="max-width:440px;margin:0 auto;border:1px solid #1c1c1c;border-radius:28px;background:#050505;padding:32px;">
         <div style="margin-bottom:24px;font-family:'Pixelify Sans',monospace;font-size:28px;letter-spacing:0.24em;color:#555555;">
-          napster
+          Nap
         </div>
         <h1 style="margin:0 0 12px;font-size:28px;line-height:1.1;color:#b8b8b8;font-weight:600;">
-          Your sign-in code
+          Your SignIn OTP
         </h1>
         <p style="margin:0 0 24px;color:#727272;line-height:1.6;">
           Use this 6-digit code to sign in. If you did not request this, you can ignore this email.
@@ -34,6 +34,7 @@ function createEmailHtml(emailOtp: string, actionLink: string | null) {
           <div style="font-size:30px;letter-spacing:0.45em;color:#d0d0d0;font-weight:700;">
             ${emailOtp}
           </div>
+          <img src="/copy.png" alt="copy btn" style="margin-top:20px;width:100%;border-radius:12px;" />
         </div>
         ${actionMarkup}
       </div>
