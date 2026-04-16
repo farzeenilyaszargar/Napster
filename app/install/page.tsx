@@ -30,7 +30,7 @@ export default function InstallPage() {
                 <div className="relative">
                   <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" />
                   <CopyCommandBar
-                    text="npm -i napster"
+                    text="npm i -g napster-cli"
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
                   />
                 </div>
@@ -46,7 +46,7 @@ export default function InstallPage() {
                 <div className="relative">
                   <Image src="/i2.png" alt="npm" width={100} height={100} className="w-full z-0" />
                   <CopyCommandBar
-                    text='Run “nap”'
+                    text='Run “napster”'
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
                   />
                 </div>
@@ -60,7 +60,7 @@ export default function InstallPage() {
                 <div className="relative">
                   <Image src="/i3.png" alt="npm" width={100} height={100} className="w-full z-0" />
                   <CopyCommandBar
-                    text="npm -i nap/cli"
+                    text="npm update napster-cli"
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
                   />
                 </div>
