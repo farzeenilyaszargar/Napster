@@ -28,7 +28,7 @@ export default function InstallPage() {
                   <p className="text-sm text-[#B8B8B8]">Install the nap CLI with npm package</p>
                 </div>
                 <div className="relative">
-                  <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" unoptimized/>
                   <CopyCommandBar
                     text="npm i -g napster-cli"
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
@@ -44,7 +44,7 @@ export default function InstallPage() {
                   </p>
                 </div>
                 <div className="relative">
-                  <Image src="/i2.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <Image src="/i2.png" alt="npm" width={100} height={100} className="w-full z-0" unoptimized />
                   <CopyCommandBar
                     text='Run “napster”'
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"
@@ -58,7 +58,7 @@ export default function InstallPage() {
                   <p className="text-sm text-[#B8B8B8]">For newer versions updated regularly, run:</p>
                 </div>
                 <div className="relative">
-                  <Image src="/i3.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <Image src="/i3.png" alt="npm" width={100} height={100} className="w-full z-0" unoptimized/>
                   <CopyCommandBar
                     text="npm update napster-cli"
                     className="absolute top-[50%] left-[50%] z-10 w-4/5 -translate-x-1/2 -translate-y-1/2 border-0"

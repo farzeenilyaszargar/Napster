@@ -26,7 +26,7 @@ export default function IssuesPage() {
                   <p className="text-sm text-[#B8B8B8]">Copy the email address below and send us an email.</p>
                 </div>
                 <div className="relative">
-                  <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" />
+                  <Image src="/i1.png" alt="npm" width={100} height={100} className="w-full z-0" unoptimized/>
                   <CopyCommandBar
                     text="issues@nap-code.com"
                     className="absolute top-[50%] left-[50%] z-10 w-[calc(100%-2rem)] max-w-xs -translate-x-1/2 -translate-y-1/2 border-0 px-4 text-sm sm:w-4/5 sm:max-w-none sm:px-7 sm:text-base"
