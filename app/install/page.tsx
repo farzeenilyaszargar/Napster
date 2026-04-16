@@ -10,7 +10,7 @@ export default function InstallPage() {
       <main className="w-full flex-1">
         <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28">
           <div className="flex flex-col items-center text-center">
-            <h2 className="mb-3 font-pixelify text-6xl font-bold -tracking-[3px] text-[#000000] sm:text-8xl">
+            <h2 className="mb-3 font-pixelify text-5xl font-bold -tracking-[3px] text-[#000000] sm:text-7xl">
               install
             </h2>
             <p className="max-w-xl text-[#919191]">
