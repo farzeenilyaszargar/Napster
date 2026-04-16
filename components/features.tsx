@@ -82,7 +82,7 @@ export default function Features() {
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>
-                <div className="overflow-hidden px-4 sm:px-6 lg:px-8">
+                <div className="overflow-hidden px-4 sm:px-6 lg:px-8 w-full ">
                     <div
                         className="flex gap-4 "
                         style={{
