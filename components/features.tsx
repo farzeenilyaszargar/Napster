@@ -76,13 +76,13 @@ export default function Features() {
     const visibleDotIndex = activeIndex % features.length;
 
     return (
-        <section id="features" className="mt-10 flex w-full scroll-mt-24 justify-center py-20 font-ubuntu">
+        <section id="features" className="mt-10 flex w-full scroll-mt-24 justify-center py-16 sm:py-20 font-ubuntu">
             <div className="w-full flex flex-col justify-center items-center">
                 <h2 className="mb-15 w-full px-5 text-left text-lg font-bold text-[#808080] sm:w-5/7 sm:px-0 sm:text-2xl ">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>
-                <div className="overflow-hidden  px-5 sm:px-6 lg:px-8 ">
+                <div className="overflow-hidden px-4 sm:px-6 lg:px-8">
                     <div
                         className="flex gap-4 "
                         style={{
@@ -95,18 +95,18 @@ export default function Features() {
                         {duplicatedFeatures.map((feature, index) => (
                             <article
                                 key={`${feature.title}-${index}`}
-                                className="shrink-0 overflow-hidden flex flex-col justify-between rounded-2xl bg-[#0F0F0F]"
+                                className="shrink-0 overflow-hidden flex flex-col justify-between rounded-xl bg-[#0F0F0F] sm:rounded-2xl"
                                 style={{ width: `calc((100% - ${(cardsPerView - 1)}rem) / ${cardsPerView})` }}
                             >
-                                <div className="p-6 pb-0">
-                                    <h3 className="text-xl font-bold text-[#bababa]">
+                                <div className="p-5 pb-0 sm:p-6 sm:pb-0">
+                                    <h3 className="text-lg font-bold text-[#bababa] sm:text-xl">
                                         {feature.title}
                                     </h3>
-                                    <p className="mt-3 text-base text-[#8F8F8F] sm:text-lg">
+                                    <p className="mt-3 text-sm text-[#8F8F8F] sm:text-lg">
                                         {feature.description}
                                     </p>
                                 </div>
-                                <div className="relative mt-6 aspect-[4/3] w-full sm:aspect-[6/3]">
+                                <div className="relative mt-4 aspect-[16/10] w-full sm:mt-6 sm:aspect-[6/3]">
                                     <Image
                                         src={feature.image}
                                         alt={feature.title}
