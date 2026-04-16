@@ -22,7 +22,18 @@ export default function Hero() {
                 </SmoothScrollLink>
             </div>
         </div>
-        <Image src="/hero.png" alt="main" width={800} height={400} className="sm:mt-20 mt-5 sm:w-5/7 sm:p-0 p-3 rounded-lg" loading="eager"/>
+        <video
+            className="pointer-events-none sm:mt-15 mt-5 sm:w-5/7 sm:p-0 p-3 rounded-lg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            disablePictureInPicture
+        >
+            <source src="/demo.mp4" type="video/mp4" />
+        </video>
     </>
     );
 }

@@ -99,7 +99,7 @@ export default function Features() {
                                 style={{ width: `calc((100% - ${(cardsPerView - 1)}rem) / ${cardsPerView})` }}
                             >
                                 <div className="p-6 pb-0">
-                                    <h3 className="text-xl font-bold text-[#595959]">
+                                    <h3 className="text-xl font-bold text-[#bababa]">
                                         {feature.title}
                                     </h3>
                                     <p className="mt-3 text-lg text-[#8F8F8F]">
