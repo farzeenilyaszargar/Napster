@@ -76,13 +76,13 @@ export default function Features() {
     const visibleDotIndex = activeIndex % features.length;
 
     return (
-        <section id="features" className="mt-10 flex w-full sm:px-0 px-5 sm:w-5/7 scroll-mt-24 justify-center py-20 font-ubuntu">
-            <div className="w-full">
-                <h2 className="mb-15 text-left text-lg sm:text-2xl font-bold text-[#808080]">
+        <section id="features" className="mt-10 flex w-full scroll-mt-24 justify-center py-20 font-ubuntu">
+            <div className="w-full flex flex-col justify-center items-center">
+                <h2 className="mb-15 text-left text-lg sm:text-2xl font-bold text-[#808080] w-5/7 ">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden  px-5 sm:px-6 lg:px-8 ">
                     <div
                         className="flex gap-4 "
                         style={{
@@ -113,6 +113,7 @@ export default function Features() {
                                         fill
                                         sizes="(max-width: 639px) 100vw, (max-width: 1024px) 33vw, 30vw"
                                         className="object-cover object-right-bottom"
+                                        loading="eager"
                                     />
                                 </div>
                             </article>

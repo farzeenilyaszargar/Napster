@@ -22,11 +22,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
-  title: "Nap | The Only CLI You Will Ever Need",
+  title: "Napster | The Only CLI You Will Ever Need",
   description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
   keywords: [
     "napster",
     "nap cli",
+    "napster cli",
+    "napster-cli",
+    "npm i -g napster-cli",
     "cli tool",
     "agentic interface",
     "codebase management",
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
     "nap code understanding",
   ],
   openGraph: {
-    title: "Nap | The Only CLI You Will Ever Need",
+    title: "Napster | The Only CLI You Will Ever Need",
     description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
     url: siteUrl,
     type: "website",
@@ -64,7 +67,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nap | The Only CLI You Will Ever Need",
+    title: "Napster | The Only CLI You Will Ever Need",
     description: "Nap CLI is an agentic interface that understands, plans, executes, and iterates directly against your codebase terminally.",
     images: [ogImageUrl],
   },

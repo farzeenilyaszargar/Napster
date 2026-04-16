@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <footer className="flex sm:w-5/7 gap-4 my-2 py-3 text-xs text-[#787878] justify-between items-center font-ubuntu ">
-            <p>Copyright © 2025 napster. All rights reserved.</p>
+            <p>Copyright © 2026 Nap. All Rights Reserved.</p>
             <div className=" flex-wrap items-center gap-2 hidden sm:flex">
                 <Link href="/privacy-policy" className="transition hover:text-[#9A9A9A]">
                     Privacy Policy
