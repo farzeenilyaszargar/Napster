@@ -11,11 +11,11 @@ export default function Hero() {
                 <p className="text-[#999999] text-sm sm:text-lg">See whats new in v0.0.16</p>
                 <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg w-2.5 sm:w-3" />
             </div> */}
-            <h2 className="text-6xl sm:text-8xl font-bold sm:text-center text-left mb-3 font-pixelify  -tracking-[3px] text-black">nap</h2>
+            <h2 className="text-6xl sm:text-8xl font-bold sm:text-center text-left mb-3 font-pixelify  -tracking-[3px] text-black">napster</h2>
             <p className="text-[#919191] text-sm text-center">An agentic interface that <span className="text-[#000000]">understands, plans, executes,<br></br> and iterates</span> directly against your codebase <span className="text-[#000000]">terminally.</span></p>
 
             <div className="flex flex-col justify-center mt-10 gap-5 ">
-                <CopyCommandBar text="npm -i napster" className="w-full hidden sm:flex" />
+                <CopyCommandBar text="npm i -g napster-cli" className="w-full hidden sm:flex" />
                 <SmoothScrollLink targetId="features" className=" flex justify-center items-center gap-1 sm:text-lg text-sm">Find out how it works
                 <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg" />
 
