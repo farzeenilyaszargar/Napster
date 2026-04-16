@@ -106,13 +106,13 @@ export default function Features() {
                                         {feature.description}
                                     </p>
                                 </div>
-                                <div className="relative mt-6 aspect-[4/3] w-full">
+                                <div className="relative mt-6 aspect-[6/3] w-full">
                                     <Image
                                         src={feature.image}
                                         alt={feature.title}
                                         fill
                                         sizes="(max-width: 639px) 100vw, (max-width: 1024px) 33vw, 30vw"
-                                        className="object-cover object-right-bottom"
+                                        className="object-cover object-top-left"
                                         loading="eager"
                                     />
                                 </div>
