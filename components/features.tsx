@@ -78,7 +78,7 @@ export default function Features() {
     return (
         <section id="features" className="mt-10 flex w-full scroll-mt-24 justify-center py-20 font-ubuntu">
             <div className="w-full flex flex-col justify-center items-center">
-                <h2 className="mb-15 text-left text-lg sm:text-2xl font-bold text-[#808080] w-5/7 ">
+                <h2 className="mb-15 w-full px-5 text-left text-lg font-bold text-[#808080] sm:w-5/7 sm:px-0 sm:text-2xl ">
                     <span className="text-[#2F2F2F]">Features.</span> From the
                     developers, to the developers.
                 </h2>
@@ -102,11 +102,11 @@ export default function Features() {
                                     <h3 className="text-xl font-bold text-[#bababa]">
                                         {feature.title}
                                     </h3>
-                                    <p className="mt-3 text-lg text-[#8F8F8F]">
+                                    <p className="mt-3 text-base text-[#8F8F8F] sm:text-lg">
                                         {feature.description}
                                     </p>
                                 </div>
-                                <div className="relative mt-6 aspect-[6/3] w-full">
+                                <div className="relative mt-6 aspect-[4/3] w-full sm:aspect-[6/3]">
                                     <Image
                                         src={feature.image}
                                         alt={feature.title}
