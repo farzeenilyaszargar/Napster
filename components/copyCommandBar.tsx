@@ -89,7 +89,7 @@ export default function CopyCommandBar({
         <button
             type="button"
             onClick={handleCopy}
-            className={`flex items-center justify-center gap-2 rounded-full border bg-black p-2 px-7 text-white transition hover:opacity-90 ${className}`}
+            className={`flex items-center justify-center gap-2 rounded-2xl border bg-black p-2 px-7 text-white transition hover:opacity-90 ${className}`}
             aria-label={`Copy command: ${text}`}
         >
             <span>{text}</span>
