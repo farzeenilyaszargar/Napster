@@ -3,7 +3,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { useSearchParams } from "next/navigation";
-import { useState, useTransition } from "react";
+import { Suspense, useState, useTransition } from "react";
 
 type PlanId = "starter_30" | "pro_60";
 
@@ -27,7 +27,7 @@ const plans: Array<{
   },
 ];
 
-export default function PaymentsPage() {
+function PricingContent() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>(null);
   const [loadingPlan, setLoadingPlan] = useState<PlanId | null>(null);
@@ -68,10 +68,10 @@ export default function PaymentsPage() {
     <div className="flex min-h-screen flex-col items-center bg-[#FCFCFC]">
       <Navbar />
       <main className="w-full flex-1">
-        <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28">
+        <div className="mx-auto flex w-full max-w-6xl flex-col px-5 pb-20 pt-20 sm:px-8 sm:pb-24 sm:pt-24 lg:px-0 lg:pt-28 gap-10">
           <div className="flex flex-col items-center text-center">
             <h1 className="mb-3 font-pixelify text-5xl font-bold -tracking-[3px] text-[#000000] sm:text-7xl">
-              payments
+              pricing
             </h1>
             <p className="max-w-xl text-[#919191]">
               Pick a plan and complete checkout securely with{" "}
@@ -102,7 +102,7 @@ export default function PaymentsPage() {
                 className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white"
               >
                 <div className="space-y-4 p-7">
-                  <h2 className="text-2xl font-semibold">{plan.title}</h2>
+                  <h2 className="text-2xl    font-semibold">{plan.title}</h2>
                   <p className="font-pixelify text-5xl text-[#D8D8D8]">{plan.price}</p>
                   <p className="text-sm leading-7 text-[#B8B8B8]">{plan.subtitle}</p>
                 </div>
@@ -113,7 +113,7 @@ export default function PaymentsPage() {
                     disabled={isPending && loadingPlan === plan.id}
                     className="inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-[#DADADA] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    {isPending && loadingPlan === plan.id ? "Redirecting..." : `Pay ${plan.price}`}
+                    {isPending && loadingPlan === plan.id ? "Redirecting..." : `Pay`}
                   </button>
                 </div>
               </article>
@@ -142,5 +142,13 @@ export default function PaymentsPage() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function PricingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#FCFCFC]" />}>
+      <PricingContent />
+    </Suspense>
   );
 }

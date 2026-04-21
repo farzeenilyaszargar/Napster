@@ -7,7 +7,7 @@ const menuItems = [
   { href: "/cloud", label: "Cloud {soon}", disabled: true },
   { href: "/install", label: "Install", disabled: false },
   { href: "/issues", label: "Issues", disabled: false },
-  { href: "/payments", label: "Payments", disabled: false },
+  { href: "/pricing", label: "Pricing", disabled: false },
 ];
 
 export default function Navbar() {
