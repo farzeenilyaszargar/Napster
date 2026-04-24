@@ -6,6 +6,43 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useState, useTransition } from "react";
 
 type PlanId = "starter_30" | "pro_60";
+type CheckoutPayload = {
+  key: string;
+  amount: number;
+  currency: string;
+  orderId: string;
+  name: string;
+  description: string;
+  error?: string;
+};
+
+type RazorpaySuccess = {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+};
+
+type RazorpayOptions = {
+  key: string;
+  amount: number;
+  currency: string;
+  name: string;
+  description: string;
+  order_id: string;
+  handler: (response: RazorpaySuccess) => void;
+  modal: {
+    ondismiss: () => void;
+  };
+  theme: {
+    color: string;
+  };
+};
+
+declare global {
+  interface Window {
+    Razorpay?: new (options: RazorpayOptions) => { open: () => void };
+  }
+}
 
 const plans: Array<{
   id: PlanId;
@@ -35,12 +72,32 @@ function PricingContent() {
 
   const status = searchParams.get("status");
 
+  const loadRazorpayScript = async () => {
+    if (window.Razorpay) {
+      return true;
+    }
+
+    return new Promise<boolean>((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
   const handleCheckout = (plan: PlanId) => {
     setError(null);
     setLoadingPlan(plan);
 
     startTransition(async () => {
       try {
+        const isScriptLoaded = await loadRazorpayScript();
+        if (!isScriptLoaded || !window.Razorpay) {
+          throw new Error("Unable to load Razorpay checkout.");
+        }
+
         const response = await fetch("/api/payments/checkout", {
           method: "POST",
           headers: {
@@ -49,12 +106,54 @@ function PricingContent() {
           body: JSON.stringify({ plan }),
         });
 
-        const payload = (await response.json()) as { url?: string; error?: string };
-        if (!response.ok || !payload.url) {
+        const payload = (await response.json()) as CheckoutPayload;
+        if (!response.ok || !payload.orderId) {
           throw new Error(payload.error || "Unable to start checkout.");
         }
 
-        window.location.assign(payload.url);
+        const checkout = new window.Razorpay({
+          key: payload.key,
+          amount: payload.amount,
+          currency: payload.currency,
+          name: payload.name,
+          description: payload.description,
+          order_id: payload.orderId,
+          handler: async (razorpayResponse) => {
+            try {
+              const verifyResponse = await fetch("/api/payments/verify", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(razorpayResponse),
+              });
+
+              if (!verifyResponse.ok) {
+                const verifyPayload = (await verifyResponse.json()) as { error?: string };
+                throw new Error(verifyPayload.error || "Payment verification failed.");
+              }
+
+              window.location.assign("/pricing?status=success");
+            } catch (verificationError) {
+              const message =
+                verificationError instanceof Error
+                  ? verificationError.message
+                  : "Payment verification failed.";
+              setError(message);
+              setLoadingPlan(null);
+            }
+          },
+          modal: {
+            ondismiss: () => {
+              window.location.assign("/pricing?status=cancel");
+            },
+          },
+          theme: {
+            color: "#0F0F0F",
+          },
+        });
+
+        checkout.open();
       } catch (checkoutError) {
         const message =
           checkoutError instanceof Error ? checkoutError.message : "Unable to start checkout.";
@@ -75,7 +174,7 @@ function PricingContent() {
             </h1>
             <p className="max-w-xl text-[#919191]">
               Pick a plan and complete checkout securely with{" "}
-              <span className="text-[#000000]">Stripe</span>.
+              <span className="text-[#000000]">Razorpay</span>.
             </p>
           </div>
 
@@ -102,18 +201,18 @@ function PricingContent() {
                 className="flex w-full flex-col justify-between overflow-hidden rounded-2xl border bg-[#0F0F0F] text-white"
               >
                 <div className="space-y-4 p-7">
-                  <h2 className="text-2xl    font-semibold">{plan.title}</h2>
+                  <h2 className="text-2xl font-medium">{plan.title}</h2>
                   <p className="font-pixelify text-5xl text-[#D8D8D8]">{plan.price}</p>
                   <p className="text-sm leading-7 text-[#B8B8B8]">{plan.subtitle}</p>
                 </div>
-                <div className="border-t border-white/10 p-7 pt-5">
+                <div className=" p-7 pt-5">
                   <button
                     type="button"
                     onClick={() => handleCheckout(plan.id)}
                     disabled={isPending && loadingPlan === plan.id}
-                    className="inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white px-4 py-3 text-sm font-semibold text-black transition hover:bg-[#DADADA] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white px-4 py-2 text-md font-semibold text-black transition hover:bg-[#DADADA] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    {isPending && loadingPlan === plan.id ? "Redirecting..." : `Pay`}
+                    {isPending && loadingPlan === plan.id ? "Opening checkout..." : `Pay`}
                   </button>
                 </div>
               </article>
@@ -128,10 +227,10 @@ function PricingContent() {
                   package for your organization.
                 </p>
               </div>
-              <div className="border-t border-white/10 p-7 pt-5">
+              <div className="p-7 pt-3">
                 <a
                   href="mailto:issues@nap-code.com?subject=Enterprise%20Plan%20Inquiry"
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-transparent px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-transparent px-4 py-2 text-md font-semibold text-white transition hover:bg-white/10"
                 >
                   Contact us
                 </a>
