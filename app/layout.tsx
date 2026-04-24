@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Pixelify_Sans, Ubuntu_Mono } from "next/font/google";
+import { Pixelify_Sans } from "next/font/google";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const pixelifySans = Pixelify_Sans({
   variable: "--font-pixelify",
   subsets: ["latin"],
-});
-
-const ubuntuMono = Ubuntu_Mono({
-  variable: "--font-ubuntu",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  display: "swap",
+  preload: false,
 });
 
 const siteUrl = getSiteUrl();
@@ -75,7 +71,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
-    <html lang="en" className={`${pixelifySans.variable} ${ubuntuMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${pixelifySans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
       </body>
