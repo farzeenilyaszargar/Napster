@@ -7,7 +7,7 @@ const pixelifySans = Pixelify_Sans({
   variable: "--font-pixelify",
   subsets: ["latin"],
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const siteUrl = getSiteUrl();

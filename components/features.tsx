@@ -33,7 +33,6 @@ const duplicatedFeatures = [...features, ...features];
 export default function Features() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
-    const [cardsPerView, setCardsPerView] = useState(3);
 
     useEffect(() => {
         const intervalId = window.setInterval(() => {
@@ -41,17 +40,6 @@ export default function Features() {
         }, 3200);
 
         return () => window.clearInterval(intervalId);
-    }, []);
-
-    useEffect(() => {
-        const updateCardsPerView = () => {
-            setCardsPerView(window.innerWidth < 640 ? 1 : 3);
-        };
-
-        updateCardsPerView();
-        window.addEventListener("resize", updateCardsPerView);
-
-        return () => window.removeEventListener("resize", updateCardsPerView);
     }, []);
 
     useEffect(() => {
@@ -84,9 +72,9 @@ export default function Features() {
                 </h2>
                 <div className="overflow-hidden px-4 sm:px-6 lg:px-8 w-full ">
                     <div
-                        className="flex gap-4 "
+                        className="flex gap-4 [--cards-per-view:1] sm:[--cards-per-view:3]"
                         style={{
-                            transform: `translateX(calc(-${activeIndex} * ((100% + 1rem) / ${cardsPerView})))`,
+                            transform: `translateX(calc(-${activeIndex} * ((100% + 1rem) / var(--cards-per-view))))`,
                             transition: isTransitionEnabled
                                 ? "transform 700ms ease"
                                 : "none",
@@ -96,7 +84,7 @@ export default function Features() {
                             <article
                                 key={`${feature.title}-${index}`}
                                 className="shrink-0 overflow-hidden flex flex-col justify-between rounded-xl bg-[#0F0F0F] sm:rounded-2xl"
-                                style={{ width: `calc((100% - ${(cardsPerView - 1)}rem) / ${cardsPerView})` }}
+                                style={{ width: "calc((100% - ((var(--cards-per-view) - 1) * 1rem)) / var(--cards-per-view))" }}
                             >
                                 <div className="p-5 pb-0 sm:p-6 sm:pb-0">
                                     <h3 className="text-lg font-bold text-[#bababa] sm:text-xl">
@@ -113,7 +101,7 @@ export default function Features() {
                                         fill
                                         sizes="(max-width: 639px) 100vw, (max-width: 1024px) 33vw, 30vw"
                                         className="object-cover object-top-left"
-                                        loading="eager"
+                                        loading="lazy"
                                     />
                                 </div>
                             </article>

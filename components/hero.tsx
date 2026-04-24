@@ -21,18 +21,22 @@ export default function Hero() {
                 </SmoothScrollLink>
             </div>
         </div>
-        <video
-            className="pointer-events-none sm:mt-15 mt-5 sm:w-5/7 sm:p-0 p-3 rounded-lg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-            disablePictureInPicture
-        >
-            <source src="/demo.mp4" type="video/mp4" />
-        </video>
+        <div className="sm:mt-15 mt-5 sm:w-5/7 w-full sm:p-0 p-3">
+            <div className="aspect-video w-full overflow-hidden rounded-lg bg-[#F4F4F4]">
+                <video
+                    className="pointer-events-none h-full w-full"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="none"
+                    aria-hidden="true"
+                    disablePictureInPicture
+                >
+                    <source src="/demo.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
     </>
     );
 }
