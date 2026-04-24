@@ -1,5 +1,4 @@
 import CopyCommandBar from "@/components/copyCommandBar";
-import Image from "next/image";
 import SmoothScrollLink from "@/components/smoothScrollLink";
 
 export default function LowHero() {
@@ -9,7 +8,7 @@ export default function LowHero() {
             <div className="flex flex-col justify-between mt-10 gap-5 ">
                 <CopyCommandBar text="npm i -g napster-cli" />
                 <SmoothScrollLink targetId="features" className=" flex justify-center items-center gap-1">Find out how it works
-                <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg " />
+                  <span aria-hidden="true" className="text-base leading-none">↗</span>
 
                 </SmoothScrollLink>
             </div>

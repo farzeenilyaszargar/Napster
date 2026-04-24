@@ -1,6 +1,5 @@
 import CopyCommandBar from "@/components/copyCommandBar";
 import SmoothScrollLink from "@/components/smoothScrollLink";
-import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -17,7 +16,7 @@ export default function Hero() {
             <div className="flex flex-col justify-center mt-10 gap-5 ">
                 <CopyCommandBar text="npm i -g napster-cli" className="w-full hidden sm:flex" />
                 <SmoothScrollLink targetId="features" className=" flex justify-center items-center gap-1 sm:text-lg text-sm">Find out how it works
-                <Image src="/right-arroww.png" alt="right arrow" width={20} height={20} className="rounded-lg" />
+                  <span aria-hidden="true" className="text-base leading-none">↗</span>
 
                 </SmoothScrollLink>
             </div>
@@ -28,7 +27,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             aria-hidden="true"
             disablePictureInPicture
         >

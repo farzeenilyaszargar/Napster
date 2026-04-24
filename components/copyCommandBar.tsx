@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type CopyCommandBarProps = {
@@ -94,29 +93,30 @@ export default function CopyCommandBar({
         >
             <span>{text}</span>
             <span className="flex items-center gap-2">
-                {
-                    copied ? 
-                    <Image
-                        src="/tick.png"
-                        alt="Copied"
-                        width={16}
-                        height={17}
-                        className="invert"
-                        style={{ height: "auto" }}
+                {copied ? (
+                    <svg
                         aria-hidden="true"
-                    />
-                    :
-                    <Image
-                        src="/copy.svg"
-                        alt="Copy"
-                        width={15}
-                        height={15}
-                        className="invert"
-                        style={{ height: "auto" }}
+                        viewBox="0 0 20 20"
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <path d="M4 10.5l4 4 8-9" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                ) : (
+                    <svg
                         aria-hidden="true"
-                    />
-                }
-                
+                        viewBox="0 0 20 20"
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                    >
+                        <rect x="7" y="7" width="9" height="9" rx="2" />
+                        <rect x="4" y="4" width="9" height="9" rx="2" />
+                    </svg>
+                )}
             </span>
         </button>
     );
