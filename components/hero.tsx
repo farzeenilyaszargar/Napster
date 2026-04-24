@@ -10,7 +10,7 @@ export default function Hero() {
                 <p className="text-[#999999] text-sm sm:text-lg">See whats new in v0.0.16</p>
                 <Image src="/right-arrow.svg" alt="right arrow" width={15} height={15} className="rounded-lg w-2.5 sm:w-3" />
             </div> */}
-            <h2 className="text-5xl sm:text-7xl font-bold sm:text-center text-left mb-3 font-pixelify  -tracking-[3px] text-black">napster</h2>
+            <h2 className="text-5xl sm:text-7xl font-bold sm:text-center text-left mb-3 font-pixelify  -tracking-[3px] text-black">nap cli</h2>
             <p className="text-[#919191] text-xs sm:text-sm text-center sm:w-1/2">an agentic interface that <span className="text-[#000000]">understands, plans, executes, and iterates</span> directly against your codebase <span className="text-[#000000]">terminally.</span></p>
 
             <div className="flex flex-col justify-center mt-10 gap-5 ">
