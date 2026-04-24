@@ -1,6 +1,8 @@
 import crypto from "crypto";
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 type VerifyRequest = {
   razorpay_order_id?: string;
   razorpay_payment_id?: string;
@@ -24,7 +26,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Missing payment verification details." }, { status: 400 });
   }
 
-  const secret = process.env.RAZORPAY_KEY_SECRET;
+  const secret = process.env.RAZORPAY_KEY_SECRET || process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET;
   if (!secret) {
     return NextResponse.json({ error: "Missing RAZORPAY_KEY_SECRET." }, { status: 500 });
   }

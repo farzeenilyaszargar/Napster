@@ -6,6 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useState, useTransition } from "react";
 
 type PlanId = "starter_30" | "pro_60";
+const displayCurrency = process.env.NEXT_PUBLIC_RAZORPAY_CURRENCY || "INR";
+const currencySymbol = displayCurrency === "USD" ? "$" : displayCurrency === "INR" ? "₹" : "";
 type CheckoutPayload = {
   key: string;
   amount: number;
@@ -53,13 +55,13 @@ const plans: Array<{
   {
     id: "starter_30",
     title: "Starter",
-    price: "$30",
+    price: `${currencySymbol}30`,
     subtitle: "Good for individual developers getting started.",
   },
   {
     id: "pro_60",
     title: "Pro",
-    price: "$60",
+    price: `${currencySymbol}60`,
     subtitle: "Best for frequent usage and team collaboration.",
   },
 ];
@@ -106,7 +108,8 @@ function PricingContent() {
           body: JSON.stringify({ plan }),
         });
 
-        const payload = (await response.json()) as CheckoutPayload;
+        const responseText = await response.text();
+        const payload = responseText ? (JSON.parse(responseText) as CheckoutPayload) : ({} as CheckoutPayload);
         if (!response.ok || !payload.orderId) {
           throw new Error(payload.error || "Unable to start checkout.");
         }
@@ -129,7 +132,10 @@ function PricingContent() {
               });
 
               if (!verifyResponse.ok) {
-                const verifyPayload = (await verifyResponse.json()) as { error?: string };
+                const verifyResponseText = await verifyResponse.text();
+                const verifyPayload = verifyResponseText
+                  ? (JSON.parse(verifyResponseText) as { error?: string })
+                  : ({} as { error?: string });
                 throw new Error(verifyPayload.error || "Payment verification failed.");
               }
 

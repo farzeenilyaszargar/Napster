@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 type CheckoutRequest = {
   plan?: "starter_30" | "pro_60";
 };
@@ -11,8 +13,8 @@ const planToAmount: Record<NonNullable<CheckoutRequest["plan"]>, number> = {
 
 function getRazorpayConfig() {
   const keyId = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-  const keySecret = process.env.RAZORPAY_KEY_SECRET;
-  const currency = process.env.RAZORPAY_CURRENCY || "USD";
+  const keySecret = process.env.RAZORPAY_KEY_SECRET || process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET;
+  const currency = process.env.RAZORPAY_CURRENCY || process.env.NEXT_PUBLIC_RAZORPAY_CURRENCY || "INR";
 
   if (!keyId) {
     throw new Error("Missing RAZORPAY_KEY_ID (or NEXT_PUBLIC_RAZORPAY_KEY_ID).");
@@ -56,7 +58,10 @@ export async function POST(request: Request) {
       }),
     });
 
-    const orderPayload = (await razorpayResponse.json()) as { id?: string; error?: { description?: string } };
+    const responseText = await razorpayResponse.text();
+    const orderPayload = responseText
+      ? (JSON.parse(responseText) as { id?: string; error?: { description?: string } })
+      : ({} as { id?: string; error?: { description?: string } });
     if (!razorpayResponse.ok || !orderPayload.id) {
       const message = orderPayload.error?.description || "Unable to create Razorpay order.";
       return NextResponse.json({ error: message }, { status: 500 });
